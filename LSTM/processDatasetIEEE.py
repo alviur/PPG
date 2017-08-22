@@ -15,10 +15,10 @@ import pickle
 
 
 # Paths
-pathTraining = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/Training_data/'
-pathTest = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/TestData/'
-pathLabelsTest = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/TestData/TrueBPM/'
-savePath = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/' 
+pathTraining = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/Training_data/'
+pathTest = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/TestData/'
+pathLabelsTest = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/TestData/TrueBPM/'
+savePath = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/' 
 
 # List files 
 trainingFiles  = [each for each in os.listdir(pathTraining) if each.endswith('.mat')]

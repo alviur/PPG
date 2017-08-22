@@ -14,7 +14,7 @@ from sklearn.preprocessing import normalize
 from sklearn.preprocessing import MinMaxScaler
 
 # Main Paths
-dataPath = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/' 
+dataPath = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/' 
 
 # Load training data 
 with open(dataPath+'training', 'rb') as handle:
@@ -43,19 +43,16 @@ for i in range(len(trainingP)):
         maxLength = trainingP[i].shape[0]
         
     
-    for j in range(0,tempLabel.shape[0]):
+    for j in range(0,tempLabel.shape[1]):
         
-        trainingMatLab[j*fs*3:j*fs*3+fs*3,0] = tempLabel[j,0]
+        trainingMatLab[j*fs*3:j*fs*3+fs*3,0] = tempLabel[0,j]
         
     trainLabels2.append(trainingMatLab)
 
 
 ## Sequence padding
-trainningPad = pad_sequences(trainingP,padding='post')
-trainningLabelsPad = pad_sequences(trainLabels2,padding='post')
-
-trainningPad = np.zeros((trainningPad.shape[0],maxLength,6))
-trainningLabelsPad = np.zeros((trainningPad.shape[0],maxLength,1))
+trainningPad = np.zeros((len(trainingP),maxLength,6))
+trainningLabelsPad = np.zeros((len(trainingP),maxLength,1))
 
 for i in range(trainningPad.shape[0]):
     
@@ -89,9 +86,9 @@ for i in range(len(test)):
         maxLength = test[i].shape[0]
         
     
-    for j in range(0,tempLabel.shape[0]):
+    for j in range(0,tempLabel.shape[1]):
         
-        trainingMatLab[j*fs*3:j*fs*3+fs*3,0] = tempLabel[j,0]
+        trainingMatLab[j*fs*3:j*fs*3+fs*3,0] = tempLabel[0,j]
         
     testLabels2.append(trainingMatLab)
     
@@ -108,10 +105,10 @@ for i in range(testPad.shape[0]):
     
     try:
         testPad[i,:,:] = tempArray
-        testLabelsPad[i] = tempArrayLab
+        testLabelsPad[i] = tempArrayLab[:,0]
     except:
         testPad[i,0:tempArray.shape[0],:] = tempArray
-        testLabelsPad[i,0:tempArray.shape[0]] = tempArrayLab[:,0]
+        testLabelsPad[i,0:tempArrayLab.shape[0]] = tempArrayLab[:,0]
             
     
 ## Normalize data

@@ -14,11 +14,12 @@ import keras
 from keras.layers import LSTM,Dense,TimeDistributed,RepeatVector
 from keras.models import Sequential
 import numpy as np
+import matplotlib.pyplot as plt
 import pickle
 
 # Load data
 # Load training data 
-dataPath = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/'
+dataPath = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/'
 
 with open(dataPath+'trainningPad', 'rb') as handle:
     trainningPad = pickle.load(handle)
@@ -51,3 +52,16 @@ print(model.summary())
 
 # Fit model
 history = model.fit(trainningPad[:,:,0:5],trainningLabelsPad, batch_size=1, epochs=1)
+#model.fit(trainningPad[:,:,0:5],trainningLabelsPad, batch_size=1, epochs=1)
+
+# Eval model
+out = model.predict(testPad)
+
+# Plot
+plt.plot(out[0,:])
+plt.show()
+#
+#plt.plot(tempLabel[0,:])
+#plt.show()
+
+
