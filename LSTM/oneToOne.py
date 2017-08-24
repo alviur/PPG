@@ -45,7 +45,7 @@ def splitSequences(data,lengthD):
 
 # Load data
 # Load training data 
-dataPath = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/'
+dataPath = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/'
 
 with open(dataPath+'trainningPad', 'rb') as handle:
     trainningPad = pickle.load(handle)

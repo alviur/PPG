@@ -14,7 +14,7 @@ from sklearn.preprocessing import normalize
 from sklearn.preprocessing import MinMaxScaler
 
 # Main Paths
-dataPath = '/home/lex/Desktop/PPG_DATASET/1_IEEE_Signal_Processing_cup_2015/' 
+dataPath = '/home/lex/MEGAsync/1_MSE/2_Projects/Project_2/2_Datasets/1_IEEE_Signal_Processing_cup_2015/' 
 
 # Load training data 
 with open(dataPath+'training', 'rb') as handle:
